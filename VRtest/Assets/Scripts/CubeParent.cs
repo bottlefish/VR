@@ -6,7 +6,7 @@ public class CubeParent : MonoBehaviour {
     public int childCount = 3;//有几个子物体
     public int originCount = 0;//默认初始0层
     public  int nowCount = 0; //现在状态
-    private Vector3 originPos; //初始位置
+    public Vector3 originPos; //初始位置
     /*
      * 4
      * 3
@@ -20,23 +20,40 @@ public class CubeParent : MonoBehaviour {
      */
     [HideInInspector]
     public  List<Cube> cube = new List<Cube>(); 
-    public float length = 1; //默认高度大小
+    public float length = 1; //压缩的scale大小
 
     void Awake() {
+        nowCount = originCount;
         originPos = transform.position;
-        transform.position = originPos + new Vector3(0,originCount * length);
+        transform.position += new Vector3(0, originCount * length, 0);
     }
+
+
+
 
     public void Update()
     {
- 
-        foreach (var a in cube) {
-            if (a.isTriggerMe) 
+        if (transform.position.y > (originPos.y + childCount * length)){
+        
+            transform.position = originPos + new Vector3(0,childCount * length,0);
+    
+        }
+        else if (transform.position.y < (originPos.y))
+        {
+            transform.position = originPos;
+        }
+
+        foreach (var a in cube)
+        {
+            if (a.isTriggerMe)
                 return;
-            if (a.RaycastUp() == 1) {
+            if (a.RaycastUp() == 1)
+            {
                 nowCount = 0;
             }
+            //transform.position = originPos + new Vector3(0, (nowCount ) * length, 0);
+            
         }
-        transform.position = originPos + new Vector3(0, nowCount * length,0);
+        transform.position = Vector3.Lerp(transform.position,(originPos + new Vector3(0, (nowCount ) * length,0)), 10*Time.deltaTime);
     }
 }

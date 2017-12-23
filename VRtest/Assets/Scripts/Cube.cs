@@ -15,7 +15,8 @@ public class Cube : MonoBehaviour
     public bool isTriggerMe = false;
     private GameObject rightController;    
     public CubeParent parent;
-
+    [HideInInspector]
+    public Vector3 rayPoint = Vector3.zero; //射线检查点
 
     void Awake()
     {
@@ -25,6 +26,8 @@ public class Cube : MonoBehaviour
         originMat = render.material;
         parent = GetComponentInParent<CubeParent>();
         parent.cube.Add(this);
+
+        rayPoint = new Vector3(0,-parent.length, 0);
     }
 
 
@@ -35,11 +38,23 @@ public class Cube : MonoBehaviour
         {
             if (isTriggerMe)
             {
+                //if (parent.transform.position.y > parent.originPos.y + parent.originCount * parent.length)
+                //    return;
                 float x = transform.parent.position.x;
                 float z = transform.parent.position.z;
                 float y = transform.parent.position.y;
-                transform.parent.position = new Vector3(x, y + (ControllerNewPos.y - ControllerOldPos.y) * factor, z);
-                
+                float scale = 1;
+                //transform.parent.position = Vector3.Lerp(transform.parent.position, new Vector3(x, y + (ControllerNewPos.y - ControllerOldPos.y) * factor, z), Time.deltaTime * 40);
+                //transform.parent.position = new Vector3(x, y + (ControllerNewPos.y - ControllerOldPos.y) * factor, z);
+                if ((ControllerNewPos.y - ControllerOldPos.y) > 0)
+                {
+                    scale = 1;
+                }
+                else {
+                    scale = -1;
+                }
+                transform.parent.Translate(transform.up*scale * Time.deltaTime * 0.1f);
+            
             }
             else
             {
@@ -64,13 +79,14 @@ public class Cube : MonoBehaviour
 
 
    public bool RaycastDown() { //向下检测
-        Ray ray = new Ray(transform.position,-transform.up);
+        Ray ray = new Ray(transform.position ,-transform.up);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 8))
         {
             if (hitInfo.collider.tag == "Ground")
             {
                 parent.nowCount = num;
+                //特效
                 return true;
             }
        
@@ -81,7 +97,7 @@ public class Cube : MonoBehaviour
 
    public int RaycastUp() //向上检测
    {
-       Ray ray = new Ray(transform.position, transform.up);
+       Ray ray = new Ray(transform.position  , transform.up);
        RaycastHit hitInfo;
        if (Physics.Raycast(ray, out hitInfo, 8)) //第八层 Ground
        {
