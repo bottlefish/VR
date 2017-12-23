@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: d9b0beacf982bf54b9146ab511ab74c8
+timeCreated: 1513156035
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: default_MeshPart0
+    100002: default_MeshPart1
+    100004: default_MeshPart2
+    100006: default_MeshPart3
+    100008: default_MeshPart4
+    100010: default_MeshPart5
+    100012: //RootNode
+    400000: default_MeshPart0
+    400002: default_MeshPart1
+    400004: default_MeshPart2
+    400006: default_MeshPart3
+    400008: default_MeshPart4
+    400010: default_MeshPart5
+    400012: //RootNode
+    2300000: default_MeshPart0
+    2300002: default_MeshPart1
+    2300004: default_MeshPart2
+    2300006: default_MeshPart3
+    2300008: default_MeshPart4
+    2300010: default_MeshPart5
+    3300000: default_MeshPart0
+    3300002: default_MeshPart1
+    3300004: default_MeshPart2
+    3300006: default_MeshPart3
+    3300008: default_MeshPart4
+    3300010: default_MeshPart5
+    4300000: default_MeshPart0
+    4300002: default_MeshPart1
+    4300004: default_MeshPart2
+    4300006: default_MeshPart3
+    4300008: default_MeshPart4
+    4300010: default_MeshPart5
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftbeacon
+    second: {fileID: 2100000, guid: dfe83dfe3e9f93e41b8621af42bfcb15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftcobblestone
+    second: {fileID: 2100000, guid: 8b00bd6eb53cc8f47b0c875b2ff022dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftcobblestone_mossy
+    second: {fileID: 2100000, guid: 2792565dbd27e524abb6e3b285a549ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftcobweb
+    second: {fileID: 2100000, guid: 193c2bd83fe021444b5b4f6fed9390e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftdirt
+    second: {fileID: 2100000, guid: 2671cdbaa6ab6344a82aa324be1b1f54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftdirt_grass_side
+    second: {fileID: 2100000, guid: 54ce665500a6eda4f8321af8ca9f3281, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftdirt_grass_top
+    second: {fileID: 2100000, guid: 1aa8ffd8408e2d446bdbf5a79d338d2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftenchant_table_bottom
+    second: {fileID: 2100000, guid: 927b973ad6dfd0240b275422012b5a7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftflower_red
+    second: {fileID: 2100000, guid: 3d336da28b91fe24fb0dc84b5f2522ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftflower_yellow
+    second: {fileID: 2100000, guid: c30a3158ef6653948ad13babcfd3a0c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftglass
+    second: {fileID: 2100000, guid: 9da13ecee0ee202429e164f7958c1768, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftglowstone
+    second: {fileID: 2100000, guid: 84d6c9e7c7b04464ebf958894ca4224e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftleaves_jungle
+    second: {fileID: 2100000, guid: dca13f75ecc4f3347892d0aa92f69b4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftlog_jungle_side
+    second: {fileID: 2100000, guid: 843b6fee9aed6064b90cd75087f0fbaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftlog_jungle_top
+    second: {fileID: 2100000, guid: 2fad3af425c012b49af03da0c631b480, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftlog_spruce_side
+    second: {fileID: 2100000, guid: d196df92ae93d2c43b00e27d73dddef7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftlog_spruce_top
+    second: {fileID: 2100000, guid: 59c52b9f8716fc040bcea6257f59912e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftplank_oak
+    second: {fileID: 2100000, guid: 0ae71a0eed65a8546b537363908ab71c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftstone
+    second: {fileID: 2100000, guid: 098aadafe73cc0142a1a847ab85f2d49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftstone_brick
+    second: {fileID: 2100000, guid: f23e339418dbd92419c543fe34879377, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftstone_brick_mossy
+    second: {fileID: 2100000, guid: 334c4f6014cb03048a017ebf06300d36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftstone_slab_side
+    second: {fileID: 2100000, guid: 7ffe43d51b2eb3046a64e3d954238384, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftstone_slab_top
+    second: {fileID: 2100000, guid: 6dfe37e74fd29554cac33fcf91424a8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecrafttall_grass
+    second: {fileID: 2100000, guid: cbc52af7be4f51a47a8d2a4936686983, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecrafttorch
+    second: {fileID: 2100000, guid: c5ec729d03df19448a8dc994a2102901, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _minecraftvines
+    second: {fileID: 2100000, guid: 176d3cbd3174b764c99dfa2241d64e5e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
