@@ -83,7 +83,7 @@ public class Cube : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 8))
         {
-            if (hitInfo.collider.tag == "Ground")
+            if (hitInfo.collider.tag == parent.LayerTag)
             {
                 parent.nowCount = num;
                 //特效
@@ -101,7 +101,7 @@ public class Cube : MonoBehaviour
        RaycastHit hitInfo;
        if (Physics.Raycast(ray, out hitInfo, 8)) //第八层 Ground
        {
-           if (hitInfo.collider.tag == "Ground")
+           if (hitInfo.collider.tag == parent.LayerTag)
            {
                return num;
            }
