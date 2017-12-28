@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class WaterControl : MonoBehaviour
@@ -7,9 +8,15 @@ public class WaterControl : MonoBehaviour
 
     //public GameObject[] cubes;
     public List<GameObject> cubes = new List<GameObject>();
+    public List<GameObject> cubes2 = new List<GameObject>();
     private GameObject[] codeCubes;
     public float waterTotalNum = 1.0f;
     public GameObject waterStart;
+    public GameObject specialCube;
+    private bool flagA = false;
+    public Transform cubesfather;
+    public GameObject ground2;
+    public GameObject ground1;
 
 
     private float watersum = 1;
@@ -68,7 +75,6 @@ public class WaterControl : MonoBehaviour
         }
 
     }
-
     void Clear()
     {
         for (int i = 0; i < 3; i++)
@@ -188,9 +194,10 @@ public class WaterControl : MonoBehaviour
                 //用当前的水来填这一层级，如果能填满留着填更高的层级
                 foreach (GameObject watercube in temp)
                 {
-
-                  watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", Mathf.Clamp01((watersum / num)+0.2f));
-                        // Debug.Log(child.name + "YES");
+                    float pre = watercube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor");
+                    watercube.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(Mathf.Clamp01((watersum / num) + 0.25f), "_Factor", 1f);
+                   // watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", Mathf.Clamp01((watersum / num) + 0.2f));
+                    // Debug.Log(child.name + "YES");
                 }
 
                 //foreach (Transform child in cubes[3].transform)
@@ -208,7 +215,7 @@ public class WaterControl : MonoBehaviour
                 if (temp != null)
                     foreach (GameObject watercube in temp)
                     {
-                            watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", -0.7f);
+                        watercube.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
                     }
             }
         }
@@ -218,10 +225,37 @@ public class WaterControl : MonoBehaviour
 
 
     // Update is called once per frame
+    IEnumerator trans()
+    {
+        yield return new WaitForSeconds(0.3f);
+    }
+    void tranfFunc()
+    {
+        if (specialCube.GetComponent<CubeParent>().nowCount == 0 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= -0.7 && !flagA)
+        {
+            Debug.Log("Now is Level Two");
+            flagA = !flagA;
+            StartCoroutine(trans());
+            foreach (GameObject a in cubes)
+            {
+                a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
+            }
+            cubes.Clear();
+            foreach (Transform a in cubesfather)
+            {
+                cubes.Add(a.gameObject);
+            }
+            //ground2.SetActive(true);
+            //ground1.SetActive(false);
+        }
+    }
     void Update()
     {
         checkceng();
         checkCube(1, minC, maxC);
+        tranfFunc();
+
+
 
         //       foreach (GameObject cube in cubes)
         //       {
