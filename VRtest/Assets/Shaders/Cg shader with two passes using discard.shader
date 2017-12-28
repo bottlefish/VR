@@ -37,12 +37,13 @@
 
 	float4 frag(vertexOutput input) : COLOR
 	{
+		fixed c = _Time.z;
 		if (input.posInObjectCoords.y > _Factor-0.6)
 		{
 			discard; // drop the fragment if y coordinate > 0
 		}
-	fixed a = _Factor;
-	_Color.g = cos(a);
+	fixed a = _Factor*1;
+	_Color.g = cos(a+0.05);
 	return _Color; // red
 	}
 
@@ -83,8 +84,8 @@
 		{
 			discard; // drop the fragment if y coordinate > 0
 		}
-	fixed a = _Factor;
-	_Color.g = cos(a+0.1);
+	fixed a = _Factor*1.3;
+	_Color.g = cos(a);
 	return _Color; // green
 	}
 

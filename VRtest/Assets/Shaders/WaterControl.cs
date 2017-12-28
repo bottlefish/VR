@@ -110,7 +110,7 @@ public class WaterControl : MonoBehaviour
         {
             for (int j = 1; j <=3; j++)
             {
-                if (cubeData[i,j] > cubeData[1,1])
+                if (cubeData[i,j] > cubeData[2,2])
                 {
                     visited[i-1, j-1] = -1;
                 }
@@ -180,6 +180,7 @@ public class WaterControl : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("第" + i + "层级的水量为" + watersum / num);
             //如果还有水就继续填这一层
             if (watersum > 0)
             {
@@ -188,7 +189,7 @@ public class WaterControl : MonoBehaviour
                 foreach (GameObject watercube in temp)
                 {
 
-                  watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", watersum / num);
+                  watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", Mathf.Clamp01((watersum / num)+0.2f));
                         // Debug.Log(child.name + "YES");
                 }
 
@@ -198,7 +199,7 @@ public class WaterControl : MonoBehaviour
                 //    // Debug.Log(child.name + "YES");
                 //}
 
-                Debug.Log("第" + i + "层级的水量为" + watersum / num);
+                
                 watersum -= num;
             }
             //如果没有就把这一层全部清空
