@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: 409df473fc29b234282429521348b03e
+timeCreated: 1514444943
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: "\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50_\u53EF\u653E\u5927_"
+    100002: "\u5854"
+    100004: "\u5927\u5C9B"
+    100006: //RootNode
+    100008: "\u6811"
+    100010: "\u6811001"
+    100012: "\u6811002"
+    100014: "\u6811003"
+    100016: "\u6811004"
+    100018: "\u6811005"
+    100020: "\u6811006"
+    100022: "\u6811007"
+    100024: "\u6811008"
+    400000: "\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50_\u53EF\u653E\u5927_"
+    400002: "\u5854"
+    400004: "\u5927\u5C9B"
+    400006: //RootNode
+    400008: "\u6811"
+    400010: "\u6811001"
+    400012: "\u6811002"
+    400014: "\u6811003"
+    400016: "\u6811004"
+    400018: "\u6811005"
+    400020: "\u6811006"
+    400022: "\u6811007"
+    400024: "\u6811008"
+    2300000: "\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50_\u53EF\u653E\u5927_"
+    2300002: "\u5854"
+    2300004: "\u5927\u5C9B"
+    2300006: "\u6811"
+    2300008: "\u6811001"
+    2300010: "\u6811002"
+    2300012: "\u6811003"
+    2300014: "\u6811004"
+    2300016: "\u6811005"
+    2300018: "\u6811006"
+    2300020: "\u6811007"
+    2300022: "\u6811008"
+    3300000: "\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50_\u53EF\u653E\u5927_"
+    3300002: "\u5854"
+    3300004: "\u5927\u5C9B"
+    3300006: "\u6811"
+    3300008: "\u6811001"
+    3300010: "\u6811002"
+    3300012: "\u6811003"
+    3300014: "\u6811004"
+    3300016: "\u6811005"
+    3300018: "\u6811006"
+    3300020: "\u6811007"
+    3300022: "\u6811008"
+    4300000: "\u5927\u5C9B"
+    4300002: "\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50_\u53EF\u653E\u5927_"
+    4300004: "\u6811"
+    4300006: "\u6811001"
+    4300008: "\u6811002"
+    4300010: "\u6811003"
+    4300012: "\u6811004"
+    4300014: "\u6811005"
+    4300016: "\u6811006"
+    4300018: "\u6811007"
+    4300020: "\u5854"
+    4300022: "\u6811008"
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "_\u5854palette"
+    second: {fileID: 2100000, guid: 8054c45416c91bf409ecc975ef2a3b88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "_\u5927\u5C9Bpalette"
+    second: {fileID: 2100000, guid: 8bbf5e8d8329b98469be9a50497fcc58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "_\u6811palette"
+    second: {fileID: 2100000, guid: 1ca5dca0ef0a20f41a29096c00087c46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "_\u865A\u62DF\u73B0\u5B9E_\u6A21\u578B_\u5149\u5F71\u97F3\u4E50\u5173\u7684\u53F0\u5B50\uFF08\u53EF\u653E\u5927\uFF09palette"
+    second: {fileID: 2100000, guid: 098633e121fd1a5478e7f73808f5c011, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
