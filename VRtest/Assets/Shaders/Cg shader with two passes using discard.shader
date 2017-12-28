@@ -41,6 +41,8 @@
 		{
 			discard; // drop the fragment if y coordinate > 0
 		}
+	fixed a = _Factor;
+	_Color.g = cos(a);
 	return _Color; // red
 	}
 
@@ -81,6 +83,8 @@
 		{
 			discard; // drop the fragment if y coordinate > 0
 		}
+	fixed a = _Factor;
+	_Color.g = cos(a+0.1);
 	return _Color; // green
 	}
 
