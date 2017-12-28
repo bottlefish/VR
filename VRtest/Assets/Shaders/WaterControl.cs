@@ -86,8 +86,8 @@ public class WaterControl : MonoBehaviour
         Pos start;
         Pos tempN;
         Pos tempNM;
-        start.x = 1;
-        start.y = 1;
+        start.x = 2;
+        start.y = 2;
         Q.Enqueue(start);
         visited[start.x - 1, start.y - 1] = -1;
         while (Q.Count != 0)
