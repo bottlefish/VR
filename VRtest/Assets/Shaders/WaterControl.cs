@@ -17,6 +17,8 @@ public class WaterControl : MonoBehaviour
     public Transform cubesfather;
     public GameObject ground2;
     public GameObject ground1;
+    public GameObject water1;
+    public GameObject water2;
 
 
     private float watersum = 1;
@@ -227,7 +229,9 @@ public class WaterControl : MonoBehaviour
     // Update is called once per frame
     IEnumerator trans()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
+        water1.GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 0.5f);
+        water2.GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 0.5f);
     }
     void tranfFunc()
     {
@@ -235,6 +239,8 @@ public class WaterControl : MonoBehaviour
         {
             Debug.Log("Now is Level Two");
             flagA = !flagA;
+            water1.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
+            water2.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
             StartCoroutine(trans());
             foreach (GameObject a in cubes)
             {
