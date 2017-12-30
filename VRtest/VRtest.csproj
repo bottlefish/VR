@@ -285,6 +285,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\Cube.cs" />
+    <Compile Include="Assets\Scripts\CubeEffect.cs" />
     <Compile Include="Assets\Scripts\CubeParent.cs" />
     <Compile Include="Assets\Scripts\HighlightTarget.cs" />
     <Compile Include="Assets\Scripts\PlayerOperation.cs" />

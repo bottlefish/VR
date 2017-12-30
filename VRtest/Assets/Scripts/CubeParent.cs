@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CubeParent : MonoBehaviour {
+
+    public CubeEffect cubeEffect;
+
     public int childCount = 3;//有几个子物体
     public int originCount = 0;//默认初始0层
     public  int nowCount = 0; //现在状态
@@ -32,26 +36,32 @@ public class CubeParent : MonoBehaviour {
     }
 
 
-
-
     public void Update()
     {
+
         if (nowCount != privateNowCount)
         {
             //震动一下
+            if(cubeEffect != null) {
+                cubeEffect.ShakeOnce();
+            }
             privateNowCount = nowCount;
 
         }
 
         if (transform.position.y > (originPos.y + childCount * length)){
-            
-            //震动一下
+            //持续震动
+            if (cubeEffect != null) {
+                cubeEffect.KeepShaking();
+            }
             transform.position = originPos + new Vector3(0,childCount * length,0);
-    
         }
         else if (transform.position.y < (originPos.y))
         {
-            //震动一下
+            //持续震动
+            if (cubeEffect != null) {
+                cubeEffect.KeepShaking();
+            }
             transform.position = originPos;
         }
 
