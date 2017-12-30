@@ -52,7 +52,7 @@ public class CubeParent : MonoBehaviour {
         if (transform.position.y > (originPos.y + childCount * length)){
             //持续震动
             if (cubeEffect != null) {
-                cubeEffect.KeepShaking();
+                cubeEffect.HighestShaking();
             }
             transform.position = originPos + new Vector3(0,childCount * length,0);
         }
@@ -60,7 +60,7 @@ public class CubeParent : MonoBehaviour {
         {
             //持续震动
             if (cubeEffect != null) {
-                cubeEffect.KeepShaking();
+                cubeEffect.LowestShaking();
             }
             transform.position = originPos;
         }
