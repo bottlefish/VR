@@ -338,6 +338,7 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\SeaOfCloud\ProceduralModeling\Scripts\Editor\ProceduralModelingEditor.cs" />
     <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeInspector.cs" />
     <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeMaterialInspector.cs" />
     <Compile Include="Assets\SteamVR\Editor\SteamVR_Editor.cs" />
@@ -411,6 +412,17 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\Normal.shader" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\ProceduralTree.cginc" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\ProceduralTreeNormal.shader" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\ProceduralTreeStandard.shader" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\ProceduralTreeUV.shader" />
+    <None Include="Assets\SeaOfCloud\ProceduralModeling\Shaders\UV.shader" />
+    <None Include="Assets\SeaOfCloud\Shaders\CloudSea.shader" />
+    <None Include="Assets\SeaOfCloud\Shaders\CustomDepth.shader" />
+    <None Include="Assets\SeaOfCloud\Shaders\Libs\Noise.cginc" />
+    <None Include="Assets\SeaOfCloud\Shaders\Libs\Utils.cginc" />
+    <None Include="Assets\SeaOfCloud\Shaders\PositionWriter.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ExtractChannel.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\FillColor.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ReadPackedData.shader" />
@@ -608,6 +620,7 @@
     <None Include="Assets\ShaderForge\Readme.txt" />
     <None Include="Assets\Shaders\All.shader" />
     <None Include="Assets\Shaders\Cg shader with two passes using discard.shader" />
+    <None Include="Assets\Shaders\DepthGrayscale.shader" />
     <None Include="Assets\Shaders\test.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
