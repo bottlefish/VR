@@ -287,6 +287,7 @@
     <Compile Include="Assets\Scripts\Cube.cs" />
     <Compile Include="Assets\Scripts\CubeEffect.cs" />
     <Compile Include="Assets\Scripts\CubeParent.cs" />
+    <Compile Include="Assets\Scripts\HeroController.cs" />
     <Compile Include="Assets\Scripts\HighlightTarget.cs" />
     <Compile Include="Assets\Scripts\PlayerOperation.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
