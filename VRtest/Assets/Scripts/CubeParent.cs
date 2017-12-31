@@ -26,7 +26,7 @@ public class CubeParent : MonoBehaviour {
     public  List<Cube> cube = new List<Cube>(); 
     public float length = 1; //压缩的scale大小
     public string LayerTag;
-    private int privateNowCount = 0; //做转换用
+    public int privateNowCount = 0; //做转换用
 
     void Awake() {
         privateNowCount = originCount;
@@ -49,7 +49,7 @@ public class CubeParent : MonoBehaviour {
 
         }
 
-        if (transform.position.y > (originPos.y + childCount * length)){
+        if (transform.position.y > (originPos.y + childCount * length+0.01f)){
             //持续震动
             if (cubeEffect != null) {
                 cubeEffect.HighestShaking();

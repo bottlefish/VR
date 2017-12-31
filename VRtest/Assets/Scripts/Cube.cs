@@ -8,7 +8,7 @@ public class Cube : MonoBehaviour
     public int num = 0; //cube编号
     private MeshRenderer render;
     public Material highLightMat;
-    public float factor = 1.5f; //上升速率
+    //public float factor = 1.5f; //上升速率
     Vector3 ControllerOldPos;
     Vector3 ControllerNewPos;
     private Material originMat;
