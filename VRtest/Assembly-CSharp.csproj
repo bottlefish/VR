@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\cengshu.cs" />
      <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\LeftHandControl.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
