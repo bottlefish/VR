@@ -15,15 +15,17 @@ public class WaterControl : MonoBehaviour
     public GameObject specialCube;
     private bool flagA = false;
     private bool flagB = false;
+    private bool flagC = false;
     public Transform cubesfather;
     public GameObject ground2;
     public GameObject ground1;
     public GameObject water1;
     public GameObject water2;
     public GameObject specialWatercube2;
+    public GameObject specialWatercube3;
     private bool L3 = false;
 
-
+    public LevelManager LM;
     private float watersum = 1;
     private float waterNum = 0.0f;
     private float waterHeigh = 0.0f;
@@ -40,6 +42,7 @@ public class WaterControl : MonoBehaviour
     private int[,] visited = new int[3, 3];
     private int[,] visited2 = new int[4, 4];
     private int[,] step = new int[2, 4]
+    
     {
     { 1, -1, 0, 0 },
     {0,0,1,-1}
@@ -141,8 +144,8 @@ public class WaterControl : MonoBehaviour
         Pos start;
         Pos tempN;
         Pos tempNM;
-        start.x = 2;
-        start.y = 2;
+        start.x = 4;
+        start.y = 1;
         Q.Enqueue(start);
         visited2[start.x - 1, start.y - 1] = -1;
         while (Q.Count != 0)
@@ -165,7 +168,7 @@ public class WaterControl : MonoBehaviour
         {
             for (int j = 1; j <= 4; j++)
             {
-                if (cubeData2[i, j] > cubeData2[2, 2])
+                if (cubeData2[i, j] > cubeData2[4, 1])
                 {
                     visited2[i - 1, j - 1] = -1;
                 }
@@ -247,6 +250,7 @@ public class WaterControl : MonoBehaviour
     void Start()
     {
         //Clear();
+        //LM.happened(1);
     }
 
     void checkCube(int water, int min, int max)
@@ -411,6 +415,7 @@ public class WaterControl : MonoBehaviour
     {
         if (specialCube.GetComponent<CubeParent>().nowCount == 0 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= -0.7 && !flagA)
         {
+
             Debug.Log("Now is Level Two");
             flagA = !flagA;
             water1.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
@@ -425,13 +430,14 @@ public class WaterControl : MonoBehaviour
             {
                 cubes.Add(a.gameObject);
             }
+            LM.happened(1);
             //ground2.SetActive(true);
             //ground1.SetActive(false);
         }
     }
     void tranfFunc2()
     {
-        if (specialWatercube2.GetComponent<CubeParent>().nowCount == 1 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= -1 && !flagB)
+        if (specialWatercube2.GetComponent<CubeParent>().nowCount >=1 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= 0 && !flagB)
         {
             L3 = true;
             //Debug.Log("Now is Level three");
@@ -439,10 +445,11 @@ public class WaterControl : MonoBehaviour
             ////water1.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
             ////water2.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
             //StartCoroutine(trans());
-            //foreach (GameObject a in cubes)
-            //{
-            //    a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
-            //}
+            foreach (GameObject a in cubes)
+            {
+                a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
+            }
+            LM.happened(2);
             //cubes.Clear();
             //foreach (Transform a in cubesfather)
             //{
@@ -452,10 +459,25 @@ public class WaterControl : MonoBehaviour
             ////ground1.SetActive(false);
         }
     }
-    void Update()
+    void tranfFunc3()
+    {
+        if ((specialWatercube3.GetComponent<CubeParent>().nowCount == 0 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= 0 && !flagC) || (Input.GetKeyDown(KeyCode.Q)))
+        {
+            flagC = !flagC;
+
+            foreach (GameObject a in cubes2)
+            {
+                a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
+            }
+            LM.happened(3);
+            //Debug.Log("!!!!QQQQ");
+        }
+    }
+            void Update()
     {
         tranfFunc();
         tranfFunc2();
+        tranfFunc3();
         if (!L3)
         {
             checkceng();

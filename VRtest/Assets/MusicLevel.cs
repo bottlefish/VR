@@ -10,6 +10,8 @@ public class MusicLevel : MonoBehaviour
     public Transform[] transforms; //小鸟位置
     public List<CubeParent> parent = new List<CubeParent>();
     private bool isWin = false;
+    public LevelManager LM;
+
 
     void Start()
     {
@@ -21,6 +23,7 @@ public class MusicLevel : MonoBehaviour
     {
         if (!isWin)
         {
+
             for (int i = 0; i < number.Length; i++)
             {
                 if (parent[i].nowCount != number[i])
@@ -39,6 +42,10 @@ public class MusicLevel : MonoBehaviour
                     b.enabled = false;
                 }
             }
+        }
+        else
+        {
+            LM.happened(4);
         }
 
 
