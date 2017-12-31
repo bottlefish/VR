@@ -14,11 +14,14 @@ public class WaterControl : MonoBehaviour
     public GameObject waterStart;
     public GameObject specialCube;
     private bool flagA = false;
+    private bool flagB = false;
     public Transform cubesfather;
     public GameObject ground2;
     public GameObject ground1;
     public GameObject water1;
     public GameObject water2;
+    public GameObject specialWatercube2;
+    private bool L3 = false;
 
 
     private float watersum = 1;
@@ -33,7 +36,9 @@ public class WaterControl : MonoBehaviour
     private List<GameObject> temp = new List<GameObject>();
     List<int> tempDate = new List<int>();
     private int[,] cubeData = new int[5, 5];
+    private int[,] cubeData2 = new int[6, 6];
     private int[,] visited = new int[3, 3];
+    private int[,] visited2 = new int[4, 4];
     private int[,] step = new int[2, 4]
     {
     { 1, -1, 0, 0 },
@@ -50,6 +55,20 @@ public class WaterControl : MonoBehaviour
         minC = 100;
         maxC = -100;
         foreach (GameObject cube in cubes)
+        {
+            minC = Mathf.Min(minC, cube.GetComponent<CubeParent>().nowCount);
+            maxC = Mathf.Max(maxC, cube.GetComponent<CubeParent>().nowCount);
+
+        }
+
+        Debug.Log("min" + minC);
+        Debug.Log("max" + maxC);
+    }
+    void checkceng2()
+    {
+        minC = 100;
+        maxC = -100;
+        foreach (GameObject cube in cubes2)
         {
             minC = Mathf.Min(minC, cube.GetComponent<CubeParent>().nowCount);
             maxC = Mathf.Max(maxC, cube.GetComponent<CubeParent>().nowCount);
@@ -77,6 +96,24 @@ public class WaterControl : MonoBehaviour
         }
 
     }
+    void Up2()
+    {
+        for (int i = 0; i <= 5; i++)
+        {
+            cubeData2[0, i] = 12;
+            cubeData2[5, i] = 12;
+            cubeData2[i, 0] = 12;
+            cubeData2[i, 5] = 12;
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            for (int j = 1; j <= 4; j++)
+            {
+                cubeData2[i, j] = cubes2[(i - 1) * 4 + j - 1].GetComponent<CubeParent>().nowCount;
+            }
+        }
+
+    }
     void Clear()
     {
         for (int i = 0; i < 3; i++)
@@ -84,6 +121,54 @@ public class WaterControl : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 visited[i, j] = 0;
+            }
+        }
+    }
+    void Clear2()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                visited2[i, j] = 0;
+            }
+        }
+    }
+    void BFS2()
+    {
+        Clear();
+        Queue<Pos> Q = new Queue<Pos>();
+        Pos start;
+        Pos tempN;
+        Pos tempNM;
+        start.x = 2;
+        start.y = 2;
+        Q.Enqueue(start);
+        visited2[start.x - 1, start.y - 1] = -1;
+        while (Q.Count != 0)
+        {
+            tempN = Q.Dequeue();
+            for (int i = 0; i < 4; i++)
+            {
+                tempNM.x = tempN.x + step[0, i];
+                tempNM.y = tempN.y + step[1, i];
+                // Debug.Log("目标方块" + cubeData[tempNM.x, tempNM.y] + " " + "当前方块" + cubeData[tempN.x, tempN.y] + " " + " 是否访问" + " " + visited[tempNM.x - 1, tempNM.y - 1]);
+                if (cubeData2[tempNM.x, tempNM.y] <= cubeData2[tempN.x, tempN.y] && visited2[tempNM.x - 1, tempNM.y - 1] != -1)
+                {
+                    Q.Enqueue(tempNM);
+                    visited2[tempNM.x - 1, tempNM.y - 1] = -1;
+                    //Debug.Log(tempNM.x + " " + tempNM.y);
+                }
+            }
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            for (int j = 1; j <= 4; j++)
+            {
+                if (cubeData2[i, j] > cubeData2[2, 2])
+                {
+                    visited2[i - 1, j - 1] = -1;
+                }
             }
         }
     }
@@ -144,11 +229,26 @@ public class WaterControl : MonoBehaviour
             }
         }
     }
+    void checkDelete2()
+    {
+        tempDate.Clear();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (visited2[i, j] != -1)
+                {
+                    tempDate.Add(i * 4 + j);
+                }
+            }
+        }
+    }
     // Use this for initialization
     void Start()
     {
         //Clear();
     }
+
     void checkCube(int water, int min, int max)
     {
         //用二维数组记录层数
@@ -223,6 +323,80 @@ public class WaterControl : MonoBehaviour
         }
 
     }
+    void checkCube2(int water, int min, int max)
+    {
+        //用二维数组记录层数
+        Up2();
+        //遍历走一遍
+        BFS2();
+        //看看有哪些点走不到
+        checkDelete2();
+        watersum = waterTotalNum;
+        //num记录每一个层级的方块数量  temp存储这些方块
+        for (int i = min; i <= max; i++)
+        {
+            // Debug.Log("当前水量为" + waterTotalNum);
+            temp.Clear();
+            int num = 0;
+            for (int k = 0; k < 16; k++)
+            {
+                bool flag = false;
+                foreach (int a in tempDate)
+                {
+                    if (k == a)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (cubes2[k].GetComponent<CubeParent>().nowCount == i)
+                    {
+                        temp.Add(cubes2[k]);
+                        num++;
+                    }
+                }
+            }
+            Debug.Log("第" + i + "层级的水量为" + watersum / num);
+            //如果还有水就继续填这一层
+            if (watersum > 0)
+            {
+                //Debug.Log("第" + i + "层级的方块数量是" + num);
+                //用当前的水来填这一层级，如果能填满留着填更高的层级
+                foreach (GameObject watercube in temp)
+                {
+                    float pre = watercube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor");
+                    watercube.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(Mathf.Clamp01((watersum / num) + 0.25f), "_Factor", 1f);
+                    // watercube.transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_Factor", Mathf.Clamp01((watersum / num) + 0.2f));
+                    // Debug.Log(child.name + "YES");
+                }
+
+                //foreach (Transform child in cubes[3].transform)
+                //{
+                //    child.GetComponent<Renderer>().material.SetFloat("_Factor", 1);
+                //    // Debug.Log(child.name + "YES");
+                //}
+
+
+                watersum -= num;
+            }
+            //如果没有就把这一层全部清空
+            else
+            {
+                if (temp != null)
+                    foreach (GameObject watercube in temp)
+                    {
+                        watercube.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
+                    }
+            }
+        }
+
+    }
 
 
 
@@ -255,11 +429,45 @@ public class WaterControl : MonoBehaviour
             //ground1.SetActive(false);
         }
     }
+    void tranfFunc2()
+    {
+        if (specialWatercube2.GetComponent<CubeParent>().nowCount == 1 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= -1 && !flagB)
+        {
+            L3 = true;
+            //Debug.Log("Now is Level three");
+            flagB = !flagB;
+            ////water1.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
+            ////water2.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
+            //StartCoroutine(trans());
+            //foreach (GameObject a in cubes)
+            //{
+            //    a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
+            //}
+            //cubes.Clear();
+            //foreach (Transform a in cubesfather)
+            //{
+            //    cubes.Add(a.gameObject);
+            //}
+            ////ground2.SetActive(true);
+            ////ground1.SetActive(false);
+        }
+    }
     void Update()
     {
-        checkceng();
-        checkCube(1, minC, maxC);
         tranfFunc();
+        tranfFunc2();
+        if (!L3)
+        {
+            checkceng();
+            checkCube(1, minC, maxC);
+
+        }
+        else
+        {
+            checkceng2();
+            checkCube2(1, minC, maxC);
+
+        }
 
 
 
