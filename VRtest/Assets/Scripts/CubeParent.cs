@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CubeParent : MonoBehaviour {
+public class CubeParent : MonoBehaviour
+{
 
     public CubeEffect cubeEffect;
 
     public int childCount = 3;//有几个子物体
     public int originCount = 0;//默认初始0层
-    public  int nowCount = 0; //现在状态
+    public int nowCount = 0; //现在状态
     public Vector3 originPos; //初始位置
     /*
      * 4
@@ -23,43 +24,93 @@ public class CubeParent : MonoBehaviour {
      * -4 //特殊情况
      */
     [HideInInspector]
-    public  List<Cube> cube = new List<Cube>(); 
+    public List<Cube> cube = new List<Cube>();
     public float length = 1; //压缩的scale大小
     public string LayerTag;
     private int privateNowCount = 0; //做转换用
 
-    void Awake() {
+    public bool level3 = false;
+    public CubeParent coupleCube;
+    public bool isSelfMove = true; //是是否是自己移动的
+
+
+
+    void Awake()
+    {
         privateNowCount = originCount;
         nowCount = originCount;
         originPos = transform.position;
         transform.position += new Vector3(0, originCount * length, 0);
+
+    }
+
+    void Start()
+    {
+
+        if (!isSelfMove)
+        {
+            foreach (var a in cube)
+            {
+                a.enabled = false;
+            }
+        }
     }
 
 
     public void Update()
     {
+        if (!isSelfMove)
+        {
+
+            if (nowCount != privateNowCount)
+            {
+                //震动一下
+                if (cubeEffect != null)
+                {
+                    cubeEffect.ShakeOnce();
+                }
+                privateNowCount = nowCount;
+
+            }
+
+            transform.position = Vector3.Lerp(transform.position, (originPos + new Vector3(0, (nowCount) * length, 0)), 10 * Time.deltaTime);
+            return;
+        }
 
         if (nowCount != privateNowCount)
         {
             //震动一下
-            if(cubeEffect != null) {
+            if (cubeEffect != null)
+            {
                 cubeEffect.ShakeOnce();
             }
+
+            if (level3 && isSelfMove)
+            {
+                int i = nowCount - privateNowCount;
+                coupleCube.nowCount -= i;
+
+            }
+
             privateNowCount = nowCount;
+
 
         }
 
-        if (transform.position.y > (originPos.y + childCount * length)){
+        if (transform.position.y > (originPos.y + childCount * length + 0.01f))
+        {
             //持续震动
-            if (cubeEffect != null) {
+            if (cubeEffect != null)
+            {
                 cubeEffect.HighestShaking();
             }
-            transform.position = originPos + new Vector3(0,childCount * length,0);
+            transform.position = originPos + new Vector3(0, childCount * length, 0);
         }
         else if (transform.position.y < (originPos.y))
         {
             //持续震动
-            if (cubeEffect != null) {
+            if (cubeEffect != null)
+            {
                 cubeEffect.LowestShaking();
             }
             transform.position = originPos;
@@ -74,8 +125,11 @@ public class CubeParent : MonoBehaviour {
                 nowCount = 0;
             }
             //transform.position = originPos + new Vector3(0, (nowCount ) * length, 0);
-            
+
         }
-        transform.position = Vector3.Lerp(transform.position,(originPos + new Vector3(0, (nowCount ) * length,0)), 10*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, (originPos + new Vector3(0, (nowCount) * length, 0)), 10 * Time.deltaTime);
     }
 }
+
+
+
