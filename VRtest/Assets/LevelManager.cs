@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour {
     bool flag = false;
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -40,10 +40,10 @@ public class LevelManager : MonoBehaviour {
             BigTree.gameObject.SetActive(true);
 
             music.gameObject.SetActive(true);
-            foreach(GameObject a in musicG)
-            {
-                a.gameObject.SetActive(true);
-            }
+            //foreach(GameObject a in musicG)
+            //{
+            //    a.gameObject.SetActive(true);
+            //}
             
             //水流第三关
         }

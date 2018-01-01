@@ -11,6 +11,7 @@ public class MusicLevel : MonoBehaviour
     public List<CubeParent> parent = new List<CubeParent>();
     private bool isWin = false;
     public LevelManager LM;
+    public GameObject[] musicLogo;
 
 
     void Start()
@@ -32,6 +33,7 @@ public class MusicLevel : MonoBehaviour
                 }
             }
             print("get");
+            LM.happened(4);
             isWin = true;
             CancelInvoke("Startsound");
             foreach (var a in parent)
@@ -43,10 +45,10 @@ public class MusicLevel : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            LM.happened(4);
-        }
+        //else
+        //{
+        //    LM.happened(4);
+        //}
 
 
     }
@@ -62,16 +64,19 @@ public class MusicLevel : MonoBehaviour
     {
 
         StartCoroutine("PlaySound");
-
     }
 
     IEnumerator PlaySound()
     {
         for (int i = 0; i < sound.Length; i++)
         {
+            
             yield return new WaitForSeconds(1);
+            musicLogo[i].SetActive(true);
             AudioSource.PlayClipAtPoint(sound[i], transforms[i].position);
             // TODO : dotween动画 播放音符
+            yield return new WaitForSeconds(0.5f);
+            musicLogo[i].SetActive(false);
         }
 
     }
