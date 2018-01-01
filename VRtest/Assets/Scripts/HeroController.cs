@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HeroController : MonoBehaviour {
 
     public Animator animator;
-    public bool keyOne;
-    public bool keyTwo;
-    public bool keyThree;
+    
+
+
+    public bool doorOneOpen = false;
+    public bool doorTwoOpen = false;
+    public bool doorThreeOpen = false;
     private int nowState = 0;
     //0: 开场
     //1：1门前
@@ -15,63 +19,43 @@ public class HeroController : MonoBehaviour {
     //3：3门前
     //4：结束
 
-    void Update() {
-        if (Input.GetKey(KeyCode.Alpha1)) {
-            animator.SetBool("walking", true);
-        }
-        else {
-            animator.SetBool("walking", false);
-        }
+    void Start()
+    {
+        animator.SetBool("walking", false);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            animator.SetBool("shouldJump", true);
-        }
-        else {
-            animator.SetBool("shouldJump", false);
+    void Update() {
+
+        if(doorOneOpen && doorTwoOpen && doorThreeOpen)
+        {
+            animator.SetBool("walking", true);
+            this.GetComponent<DOTweenPath>().DOPlay();
         }
 
     }
 
-    void CheckBool() {
-        switch (nowState) {
-            case 0:
-                //look,start
-                
-                //ienum
-                //nowState +
-                break;
+
+
+    public void OpenDoorReaction(int doorID)
+    {
+        switch (doorID){
             case 1:
-                if (keyOne) {
-                    //ienum 
-                }
-                else {
-                    //daiji
-                }
+                doorOneOpen = true;
                 break;
             case 2:
-                if (keyTwo) {
-                    //ienum
-                }
-                else {
-                    //daiji
-                }
+                doorTwoOpen = true;
                 break;
             case 3:
-                if (keyThree) {
-                    //ienum
-                }
-                else {
-                    //daiji
-                }
-                break;
-            case 4:
-                //ienum
+                doorThreeOpen = true;
                 break;
         }
+        print(doorOneOpen);
+        print(doorTwoOpen);
+        print(doorThreeOpen);
     }
 
-    IEnumerator GoToDoorOne() {
-        animator.SetBool("walking", true);
-        yield return new WaitForFixedUpdate();
+    public void ToNextState()
+    {
+        nowState += 1;
     }
 }

@@ -33,7 +33,12 @@ public class CubeParent : MonoBehaviour
     public CubeParent coupleCube;
     public bool isSelfMove = true; //是是否是自己移动的
 
-
+    /// <summary>
+    /// 收集关卡
+    /// </summary>
+    public bool isSelect = false; //是否是收集方块
+    public GameObject rune;  //对应的方块 3,1,0,0.17，Ground5 ，cube1位default  
+    private bool isFound = false;
 
     void Awake()
     {
@@ -59,6 +64,15 @@ public class CubeParent : MonoBehaviour
 
     public void Update()
     {
+
+        if (isSelect && nowCount == 0 && !isFound)
+        {
+            rune.GetComponent<Rune>().MoveToTarget();
+            isFound = true;
+
+        }
+
+
         if (!isSelfMove)
         {
 

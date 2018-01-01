@@ -11,6 +11,8 @@
         private bool triggerPressed = false;                            //是否按下了扳机
         private bool haveDoOnce = false;                                //是否只执行了一次
 
+        public MusicLevel music;
+
         private void Awake()
         {
             pointerRenderer = GetComponent<VRTK_StraightPointerRenderer>();
@@ -18,6 +20,7 @@
 
         private void Start()
         {
+            
             GetComponent<VRTK_ControllerEvents>().TriggerPressed += new ControllerInteractionEventHandler(DoTriggerPressed);
             GetComponent<VRTK_ControllerEvents>().TriggerReleased += new ControllerInteractionEventHandler(TriggerReleased);
         }
@@ -38,6 +41,7 @@
         /// </summary>
         private void Update()
         {
+            
             if (pointerRenderer.a != null && triggerPressed)
             {
                 isChoosing = true;
@@ -52,13 +56,32 @@
                 {
                     chosenTarget = pointerRenderer.a;
                     haveDoOnce = true;
+                    //播放动画
+                    switch (chosenTarget.tag)
+                    {
+                        case "rune": //树屋里边的rune
+                            chosenTarget.GetComponent<Rune>().MoveToTarget();
+                            break;
+                        case "bird":
+                            //让小鸟唱歌
+                            music.Startsound();
+                            break;
+                        case "Tools": //播放向上飞的动画并且放大
+                            chosenTarget.GetComponent<Tools>().isTriggerMe = true;
+                            break;
+                        case "dialog":
+                            chosenTarget.GetComponent<Dialog>().AddState();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             else
             {
-                if (chosenTarget != null)
+                if (chosenTarget != null && chosenTarget.tag == "Tools")
                 {
-                    //播放动画
+                    chosenTarget.GetComponent<Tools>().isTriggerMe = false;
                 }
                 chosenTarget = null;
                 haveDoOnce = false;

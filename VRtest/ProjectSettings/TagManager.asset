@@ -11,6 +11,14 @@ TagManager:
   - Ground2
   - Ground3
   - Ground4
+  - Ground5
+  - Ground6
+  - bird
+  - rune
+  - Door
+  - LeftController
+  - dialog
+  - Tools
   layers:
   - Default
   - TransparentFX

@@ -415,7 +415,6 @@ public class WaterControl : MonoBehaviour
     {
         if (specialCube.GetComponent<CubeParent>().nowCount == 0 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= -0.7 && !flagA)
         {
-
             Debug.Log("Now is Level Two");
             flagA = !flagA;
             water1.GetComponent<Renderer>().material.DOFloat(1f, "_Factor", 1f);
@@ -461,10 +460,9 @@ public class WaterControl : MonoBehaviour
     }
     void tranfFunc3()
     {
-        if ((specialWatercube3.GetComponent<CubeParent>().nowCount == 0 && specialCube.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") >= 0 && !flagC) || (Input.GetKeyDown(KeyCode.Q)))
+        if ((specialWatercube3.GetComponent<CubeParent>().nowCount >=0 && specialWatercube3.transform.GetChild(0).GetComponent<Renderer>().material.GetFloat("_Factor") > 0 && !flagC) || (Input.GetKeyDown(KeyCode.Q)))
         {
             flagC = !flagC;
-
             foreach (GameObject a in cubes2)
             {
                 a.transform.GetChild(0).GetComponent<Renderer>().material.DOFloat(0f, "_Factor", 1f);
@@ -482,13 +480,11 @@ public class WaterControl : MonoBehaviour
         {
             checkceng();
             checkCube(1, minC, maxC);
-
         }
         else
         {
             checkceng2();
             checkCube2(1, minC, maxC);
-
         }
 
 

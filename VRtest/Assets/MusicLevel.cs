@@ -14,10 +14,7 @@ public class MusicLevel : MonoBehaviour
     public GameObject[] musicLogo;
 
 
-    void Start()
-    {
-        StartPlaySound();
-    }
+ 
 
 
     void Update()
@@ -53,14 +50,9 @@ public class MusicLevel : MonoBehaviour
 
     }
 
-    public void StartPlaySound()
-    {
 
-        InvokeRepeating("Startsound", 0, 10);
 
-    }
-
-    void Startsound()
+    public void Startsound()
     {
 
         StartCoroutine("PlaySound");
