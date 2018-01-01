@@ -40,9 +40,9 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 2.43
+      intensity: 0.94
       radius: 0.05
       sampleCount: 16
       downsampling: 1
@@ -97,13 +97,13 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       bloom:
         intensity: 0.2
         threshold: 1.1
-        softKnee: 0.44
-        radius: 3.17
+        softKnee: 0.407
+        radius: 2.88
         antiFlicker: 1
       lensDirt:
         texture: {fileID: 0}

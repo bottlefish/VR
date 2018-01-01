@@ -713,6 +713,8 @@
     <Compile Include="Assets\VRTK\SDK\Ximmerse\SDK_XimmerseSystem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Allsky\AllSkyDemoEnvironment\Specular Snow Vertex Colours.shader" />
+    <None Include="Assets\Allsky\allsky_readme.txt" />
     <None Include="Assets\Colorful\Changelog.txt" />
     <None Include="Assets\Colorful\Readme.txt" />
     <None Include="Assets\Colorful\Shaders\CC_AnalogTV.shader" />
@@ -1017,6 +1019,7 @@
     <None Include="Assets\Shaders\DepthFog.shader" />
     <None Include="Assets\Shaders\DepthGrayscale.shader" />
     <None Include="Assets\Shaders\test.shader" />
+    <None Include="Assets\SpecialMaterial\NewSurfaceShader.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />

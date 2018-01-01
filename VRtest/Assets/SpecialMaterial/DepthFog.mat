@@ -32,5 +32,5 @@ Material:
     - _TextureIntensity: 1
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 0.34061417, g: 0.5717932, b: 0.61764705, a: 0}
-    - _TextureColor: {r: 0.9485294, g: 0.8932146, b: 0.7741674, a: 0}
+    - _Color0: {r: 0.370891, g: 0.5758859, b: 0.7205882, a: 0}
+    - _TextureColor: {r: 0.9852941, g: 0.9405262, b: 0.8838668, a: 0}

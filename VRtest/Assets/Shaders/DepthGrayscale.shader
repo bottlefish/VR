@@ -6,6 +6,7 @@ Shader "Unlit/DepthGrayscale"
 {
 	Properties {
 	   _MainTex ("", 2D) = "white" {} //this texture will have the rendered image before post-processing
+	   _Factor("Factor", Range(0,1)) = 0.3
 	}
 
 	SubShader {
@@ -20,6 +21,7 @@ Shader "Unlit/DepthGrayscale"
 			sampler2D _CameraDepthTexture;
 			float3 _Center;
 			float _Radius;
+			float _Factor;
 
 			struct v2f {
 			   float4 pos : SV_POSITION;
@@ -49,9 +51,9 @@ Shader "Unlit/DepthGrayscale"
 			  
 
 			  // if (d > _Radius ) {
-					depth.r =   orgColor.r + depthValue *0.6f ;
-				   depth.g =   orgColor.g  +  depthValue *0.6f ;
-				   depth.b =   orgColor.b  + depthValue *0.6f ;
+					depth.r =   orgColor.r + depthValue *_Factor;
+				   depth.g =   orgColor.g  +  depthValue *_Factor;
+				   depth.b =   orgColor.b  + depthValue *_Factor;
 			   //}
 				//else{
 				//	depth.r = orgColor.r;

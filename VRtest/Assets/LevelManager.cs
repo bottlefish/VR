@@ -33,13 +33,13 @@ public class LevelManager : MonoBehaviour {
         if(level==3)
         {
             //水流第三个结束，到了音乐
-            Debug.Log("OKOK");
-            UIWater.gameObject.SetActive(false);
-            UILerp.gameObject.SetActive(true);
-            SmallTree.gameObject.SetActive(false);
-            BigTree.gameObject.SetActive(true);
+            //Debug.Log("OKOK");
+            //UIWater.gameObject.SetActive(false);
+            //UILerp.gameObject.SetActive(true);
+            //SmallTree.gameObject.SetActive(false);
+            //BigTree.gameObject.SetActive(true);
 
-            music.gameObject.SetActive(true);
+            //music.gameObject.SetActive(true);
             //foreach(GameObject a in musicG)
             //{
             //    a.gameObject.SetActive(true);
@@ -47,16 +47,16 @@ public class LevelManager : MonoBehaviour {
             
             //水流第三关
         }
-        if(level==4&&!flag)
-        {
-            //音乐关卡结束
-            flag = true;
-            foreach (GameObject a in musicG)
-            {
-                a.gameObject.SetActive(false);
-                music.gameObject.SetActive(false);
-            }
-        }
+        //if(level==4&&!flag)
+        //{
+        //    //音乐关卡结束
+        //    flag = true;
+        //    foreach (GameObject a in musicG)
+        //    {
+        //        a.gameObject.SetActive(false);
+        //        music.gameObject.SetActive(false);
+        //    }
+        //}
             
     }
 }
